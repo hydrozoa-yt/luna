@@ -9,6 +9,10 @@ import io.luna.game.model.mob.SkillSet;
 import io.luna.plugin.Plugin;
 import io.luna.plugin.listeners.CommandListener;
 
+/**
+ * Ported from adminCmd.kts
+ * @author hydrozoa
+ */
 public class CommandPlugin extends Plugin implements CommandListener {
 
     public CommandPlugin(LunaContext ctx) {
@@ -17,13 +21,11 @@ public class CommandPlugin extends Plugin implements CommandListener {
 
     @Override
     public boolean handleCommand(CommandEvent e) {
-        e.getPlr().sendMessage("I saw you do that.");
-
         Player p = e.getPlr();
 
         switch (e.getName()) {
             case "master":
-                if (p.getRights() != PlayerRights.ADMINISTRATOR) {
+                if (p.getRights().getClientValue() < PlayerRights.ADMINISTRATOR.getClientValue()) {
                     return false;
                 }
 
