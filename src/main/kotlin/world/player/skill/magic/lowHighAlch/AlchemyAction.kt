@@ -9,7 +9,7 @@ import io.luna.game.model.mob.Player
 import io.luna.game.model.mob.block.Graphic
 import io.luna.game.model.mob.inter.GameTabSet.TabIndex
 import world.player.Animations
-import world.player.Sounds
+import io.luna.game.model.Sounds
 import world.player.skill.magic.Magic
 
 /**

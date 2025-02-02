@@ -5,7 +5,7 @@ import io.luna.game.model.item.Item
 import io.luna.game.model.mob.block.Animation
 import io.luna.game.model.mob.block.Graphic
 import io.luna.game.model.mob.Player
-import world.player.Sounds
+import io.luna.game.model.Sounds
 
 /**
  * The rune essence identifier.

@@ -56,7 +56,7 @@ import io.luna.util.StringUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import world.player.Messages;
-import world.player.Sounds;
+import io.luna.game.model.Sounds;
 
 import java.time.Instant;
 import java.util.HashMap;

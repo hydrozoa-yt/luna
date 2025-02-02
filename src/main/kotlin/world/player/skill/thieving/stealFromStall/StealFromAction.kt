@@ -12,7 +12,7 @@ import io.luna.game.model.mob.Player
 import io.luna.game.model.`object`.GameObject
 import world.player.Animations
 import world.player.Messages
-import world.player.Sounds
+import io.luna.game.model.Sounds
 import world.player.following.FollowingAction
 import world.player.skill.thieving.Thieving
 

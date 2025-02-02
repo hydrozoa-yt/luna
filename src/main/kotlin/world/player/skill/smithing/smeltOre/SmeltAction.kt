@@ -8,7 +8,7 @@ import io.luna.game.model.item.Equipment
 import io.luna.game.model.item.Item
 import io.luna.game.model.mob.Player
 import world.player.Animations
-import world.player.Sounds
+import io.luna.game.model.Sounds
 import world.player.skill.smithing.BarType
 
 /**

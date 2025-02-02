@@ -7,7 +7,7 @@ import io.luna.game.action.QueuedAction
 import io.luna.game.model.mob.Player
 import io.luna.game.model.mob.block.Graphic
 import world.player.Animations
-import world.player.Sounds
+import io.luna.game.model.Sounds
 import world.player.skill.magic.Magic
 
 /**

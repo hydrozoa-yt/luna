@@ -6,7 +6,7 @@ import io.luna.game.action.ItemContainerAction.InventoryAction
 import io.luna.game.event.impl.NpcClickEvent
 import io.luna.game.model.item.Item
 import io.luna.game.model.mob.block.Animation
-import world.player.Sounds
+import io.luna.game.model.Sounds
 import world.player.skill.fishing.Tool
 
 /**

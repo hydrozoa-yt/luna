@@ -10,7 +10,7 @@ import io.luna.game.model.item.Item
 import io.luna.game.model.mob.Player
 import io.luna.game.model.mob.block.Animation
 import io.luna.game.model.`object`.GameObject
-import world.player.Sounds
+import io.luna.game.model.Sounds
 import world.player.skill.crafting.gemCutting.Gem
 import world.player.skill.mining.Ore
 import world.player.skill.mining.Pickaxe

@@ -6,7 +6,7 @@ import io.luna.game.action.Action
 import io.luna.game.model.Direction
 import io.luna.game.model.mob.Player
 import io.luna.game.model.`object`.ObjectType
-import world.player.Sounds
+import io.luna.game.model.Sounds
 
 /**
  * A [LightAction] implementation that enables lighting logs to create fires.

@@ -16,7 +16,7 @@ import io.luna.game.model.mob.block.Hit;
 import io.luna.game.model.mob.block.UpdateFlagSet;
 import io.luna.game.model.mob.block.UpdateFlagSet.UpdateFlag;
 import io.luna.game.task.Task;
-import world.player.Sounds;
+import io.luna.game.model.Sounds;
 
 import java.util.Objects;
 import java.util.Optional;

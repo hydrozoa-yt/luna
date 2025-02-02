@@ -5,7 +5,7 @@ import api.predef.*
 import api.predef.ext.*
 import io.luna.game.action.ThrottledAction
 import io.luna.game.model.mob.Player
-import world.player.Sounds
+import io.luna.game.model.Sounds
 import world.player.skill.mining.Ore
 
 /**

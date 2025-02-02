@@ -8,7 +8,7 @@ import io.luna.game.model.item.Item
 import io.luna.game.model.mob.block.Animation
 import io.luna.game.model.mob.Player
 import world.player.Animations
-import world.player.Sounds
+import io.luna.game.model.Sounds
 import world.player.skill.fletching.attachArrow.Arrow
 import world.player.skill.fletching.stringBow.Bow
 

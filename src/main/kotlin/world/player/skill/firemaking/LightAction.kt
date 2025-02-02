@@ -7,7 +7,7 @@ import io.luna.game.action.RepeatingAction
 import io.luna.game.model.mob.Player
 import io.luna.game.model.mob.block.Animation
 import world.player.Animations
-import world.player.Sounds
+import io.luna.game.model.Sounds
 
 /**
  * A [RepeatingAction] that allows a player to perform a generic firemaking based light action, where the end result

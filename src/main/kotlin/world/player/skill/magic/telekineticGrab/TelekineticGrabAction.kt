@@ -17,7 +17,7 @@ import io.luna.game.model.mob.block.Graphic
 import io.luna.game.model.`object`.GameObject
 import io.luna.game.model.`object`.ObjectGroup
 import world.player.Messages
-import world.player.Sounds
+import io.luna.game.model.Sounds
 import world.player.skill.magic.Magic
 import world.player.skill.magic.Rune
 import world.player.skill.magic.RuneRequirement

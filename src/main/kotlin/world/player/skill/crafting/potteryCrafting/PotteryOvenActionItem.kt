@@ -6,7 +6,7 @@ import io.luna.game.action.ItemContainerAction.InventoryAction
 import io.luna.game.model.item.Item
 import io.luna.game.model.mob.Player
 import io.luna.game.model.mob.block.Animation
-import world.player.Sounds
+import io.luna.game.model.Sounds
 
 /**
  * An [InventoryAction] that fires [Unfired] pottery materials.
