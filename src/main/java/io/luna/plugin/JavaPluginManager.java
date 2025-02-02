@@ -2,8 +2,11 @@ package io.luna.plugin;
 
 import io.luna.LunaContext;
 import io.luna.game.event.Event;
+import io.luna.game.event.impl.ButtonClickEvent;
 import io.luna.game.event.impl.CommandEvent;
+import io.luna.plugin.impl.ActionButtonPlugin;
 import io.luna.plugin.impl.CommandPlugin;
+import io.luna.plugin.listeners.ButtonClickListener;
 import io.luna.plugin.listeners.CommandListener;
 import io.luna.plugin.listeners.EventListener;
 
@@ -27,7 +30,13 @@ public class JavaPluginManager {
     }
 
     public void loadPlugins() {
-        loadPlugin(new CommandPlugin(ctx));
+        List<Plugin> plugins = List.of(
+                new CommandPlugin(ctx),
+                new ActionButtonPlugin(ctx)
+        );
+        for (Plugin p : plugins) {
+            loadPlugin(p);
+        }
     }
 
     private void loadPlugin(Plugin plugin) {
@@ -35,6 +44,10 @@ public class JavaPluginManager {
         if (CommandListener.class.isAssignableFrom(pluginClass)) {
             CommandListener commandListener = (CommandListener) plugin; // Safe cast here
             addEventListener(commandListener, CommandEvent.class);
+        }
+        if (ButtonClickListener.class.isAssignableFrom(pluginClass)) {
+            ButtonClickListener buttonListener = (ButtonClickListener) plugin; // Safe cast here
+            addEventListener(buttonListener, ButtonClickEvent.class);
         }
     }
 
