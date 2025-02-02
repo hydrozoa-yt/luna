@@ -4,6 +4,7 @@ import io.luna.game.cache.Cache;
 import io.luna.game.model.World;
 import io.luna.game.plugin.PluginManager;
 import io.luna.game.service.GameService;
+import io.luna.plugin.JavaPluginManager;
 
 /**
  * A model representing a single instance of Runescape. Only one instance should exist at a time.
@@ -38,6 +39,11 @@ public final class LunaContext {
     private final PluginManager plugins = new PluginManager(this);
 
     /**
+     * The java plugin manager.
+     */
+    private final JavaPluginManager javaPlugins = new JavaPluginManager(this);
+
+    /**
      * A package-private constructor.
      */
     LunaContext() {
@@ -67,8 +73,16 @@ public final class LunaContext {
     /**
      * @return The plugin manager.
      */
+    @Deprecated
     public PluginManager getPlugins() {
         return plugins;
+    }
+
+    /**
+     * @return The plugin manager.
+     */
+    public JavaPluginManager getJavaPlugins() {
+        return javaPlugins;
     }
 
     /**

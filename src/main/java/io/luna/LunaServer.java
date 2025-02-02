@@ -86,7 +86,7 @@ public final class LunaServer {
 
         initCache();
         initLaunchTasks();
-        initPlugins();
+        //initPlugins();
         initServices();
 
         initNetwork();

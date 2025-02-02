@@ -14,6 +14,7 @@ import static java.util.Objects.requireNonNull;
  *
  * @author lare96
  */
+@Deprecated
 public final class PluginManager {
 
     /**

@@ -1,3 +1,5 @@
+The goal of this branch is to introduce java based plugins.
+
 # Luna | [![Discord chat](https://img.shields.io/discord/1235328604506685551)](https://discord.gg/bqkGY7cmVX) [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/lare96/luna/master/LICENSE.txt)
 Luna is a #377 RS2 server designed to be lightweight, fast, and easy to use.
 

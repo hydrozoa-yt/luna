@@ -15,6 +15,7 @@ import static com.google.common.base.Preconditions.checkState;
  * @param <E> The type of event being intercepted.
  * @author lare96
  */
+@Deprecated
 public final class EventListener<E extends Event> {
 
     /**

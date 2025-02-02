@@ -5,6 +5,7 @@ package io.luna.game.plugin;
  *
  * @author lare96
  */
+@Deprecated
 public final class ScriptExecutionException extends RuntimeException {
 
     /**

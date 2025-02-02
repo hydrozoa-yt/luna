@@ -16,6 +16,7 @@ import java.util.concurrent.atomic.AtomicReference;
  *
  * @author lare96 
  */
+@Deprecated
 public final class KotlinBindings {
 
     /**

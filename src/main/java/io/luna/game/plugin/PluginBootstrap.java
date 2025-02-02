@@ -25,6 +25,7 @@ import java.util.Map.Entry;
  *
  * @author lare96
  */
+@Deprecated
 public final class PluginBootstrap {
 
     /**

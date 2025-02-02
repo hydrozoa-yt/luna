@@ -9,6 +9,7 @@ import io.luna.game.model.mob.MobList;
 import io.luna.game.model.mob.Player;
 import io.luna.game.plugin.PluginManager;
 import io.luna.game.service.GameService;
+import io.luna.plugin.JavaPluginManager;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -36,6 +37,8 @@ public abstract class Entity {
      * The plugin manager.
      */
     protected final PluginManager plugins;
+
+    protected final JavaPluginManager javaPlugins;
 
     /**
      * The game service.
@@ -85,6 +88,7 @@ public abstract class Entity {
         this.type = type;
 
         plugins = context.getPlugins();
+        javaPlugins = context.getJavaPlugins();
         service = context.getGame();
         world = context.getWorld();
     }
@@ -100,6 +104,7 @@ public abstract class Entity {
         this.type = type;
 
         plugins = context.getPlugins();
+        javaPlugins = context.getJavaPlugins();
         service = context.getGame();
         world = context.getWorld();
     }
@@ -290,6 +295,13 @@ public abstract class Entity {
      */
     public final PluginManager getPlugins() {
         return plugins;
+    }
+
+    /**
+     * @return The plugin manager.
+     */
+    public final JavaPluginManager getJavaPlugins() {
+        return javaPlugins;
     }
 
     /**

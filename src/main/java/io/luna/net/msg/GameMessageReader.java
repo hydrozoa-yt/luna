@@ -145,6 +145,7 @@ public abstract class GameMessageReader<E extends Event> {
     private void postEvent(Player player, E event) {
         handle(player, event);
         player.getPlugins().post(event);
+        player.getJavaPlugins().post(event);
     }
 
     /**

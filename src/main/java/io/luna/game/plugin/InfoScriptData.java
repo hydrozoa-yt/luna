@@ -7,6 +7,7 @@ import com.google.common.collect.ImmutableList;
  *
  * @author lare96
  */
+@Deprecated
 public final class InfoScriptData {
 
     /**

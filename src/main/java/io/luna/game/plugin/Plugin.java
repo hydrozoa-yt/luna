@@ -16,6 +16,7 @@ import java.util.Objects;
  *
  * @author lare96
  */
+@Deprecated
 public final class Plugin {
 
     /**

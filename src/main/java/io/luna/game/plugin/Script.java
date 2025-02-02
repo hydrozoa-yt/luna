@@ -9,6 +9,7 @@ import kotlin.script.templates.standard.ScriptTemplateWithArgs;
  *
  * @author lare96
  */
+@Deprecated
 public class Script {
 
     /**
