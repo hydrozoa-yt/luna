@@ -4,11 +4,14 @@ import io.luna.LunaContext;
 import io.luna.game.event.Event;
 import io.luna.game.event.impl.ButtonClickEvent;
 import io.luna.game.event.impl.CommandEvent;
+import io.luna.game.event.impl.LoginEvent;
 import io.luna.plugin.impl.ActionButtonPlugin;
 import io.luna.plugin.impl.CommandPlugin;
+import io.luna.plugin.impl.InitPlayerPlugin;
 import io.luna.plugin.listeners.ButtonClickListener;
 import io.luna.plugin.listeners.CommandListener;
 import io.luna.plugin.listeners.EventListener;
+import io.luna.plugin.listeners.LoginListener;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -31,6 +34,7 @@ public class JavaPluginManager {
 
     public void loadPlugins() {
         List<Plugin> plugins = List.of(
+                new InitPlayerPlugin(ctx),
                 new CommandPlugin(ctx),
                 new ActionButtonPlugin(ctx)
         );
@@ -41,6 +45,10 @@ public class JavaPluginManager {
 
     private void loadPlugin(Plugin plugin) {
         Class pluginClass = plugin.getClass();
+        if (LoginListener.class.isAssignableFrom(pluginClass)) {
+            LoginListener loginListener = (LoginListener) plugin; // Safe cast here
+            addEventListener(loginListener, LoginEvent.class);
+        }
         if (CommandListener.class.isAssignableFrom(pluginClass)) {
             CommandListener commandListener = (CommandListener) plugin; // Safe cast here
             addEventListener(commandListener, CommandEvent.class);

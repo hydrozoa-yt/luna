@@ -402,6 +402,7 @@ public class Player extends Mob {
         teleporting = true;
         flags.flag(UpdateFlag.APPEARANCE);
         plugins.post(new LoginEvent(this));
+        javaPlugins.post(new LoginEvent(this));
     }
 
     @Override
@@ -412,6 +413,7 @@ public class Player extends Mob {
         removeLocalObjects();
         interfaces.close();
         plugins.post(new LogoutEvent(this));
+        javaPlugins.post(new LogoutEvent(this));
     }
 
     @Override
