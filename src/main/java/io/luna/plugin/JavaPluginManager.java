@@ -5,13 +5,12 @@ import io.luna.game.event.Event;
 import io.luna.game.event.impl.ButtonClickEvent;
 import io.luna.game.event.impl.CommandEvent;
 import io.luna.game.event.impl.LoginEvent;
+import io.luna.game.event.impl.SkillChangeEvent;
 import io.luna.plugin.impl.ActionButtonPlugin;
+import io.luna.plugin.impl.AdvanceLevelPlugin;
 import io.luna.plugin.impl.CommandPlugin;
 import io.luna.plugin.impl.InitPlayerPlugin;
-import io.luna.plugin.listeners.ButtonClickListener;
-import io.luna.plugin.listeners.CommandListener;
-import io.luna.plugin.listeners.EventListener;
-import io.luna.plugin.listeners.LoginListener;
+import io.luna.plugin.listeners.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -19,6 +18,9 @@ import java.util.List;
 import java.util.Map;
 
 /**
+ * Manages all java plugins loaded and dispatches events to their listeners.
+ * Eventually these would be loaded from a seperate directory.
+ *
  * @author hydrozoa
  */
 public class JavaPluginManager {
@@ -36,7 +38,8 @@ public class JavaPluginManager {
         List<Plugin> plugins = List.of(
                 new InitPlayerPlugin(ctx),
                 new CommandPlugin(ctx),
-                new ActionButtonPlugin(ctx)
+                new ActionButtonPlugin(ctx),
+                new AdvanceLevelPlugin(ctx)
         );
         for (Plugin p : plugins) {
             loadPlugin(p);
@@ -56,6 +59,10 @@ public class JavaPluginManager {
         if (ButtonClickListener.class.isAssignableFrom(pluginClass)) {
             ButtonClickListener buttonListener = (ButtonClickListener) plugin; // Safe cast here
             addEventListener(buttonListener, ButtonClickEvent.class);
+        }
+        if (SkillChangeListener.class.isAssignableFrom(pluginClass)) {
+            SkillChangeListener skillChangeListener = (SkillChangeListener) plugin; // Safe cast here
+            addEventListener(skillChangeListener, SkillChangeEvent.class);
         }
     }
 

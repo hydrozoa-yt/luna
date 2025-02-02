@@ -6,6 +6,7 @@ import com.google.common.collect.Range;
 import io.luna.Luna;
 import io.luna.game.event.impl.SkillChangeEvent;
 import io.luna.game.plugin.PluginManager;
+import io.luna.plugin.JavaPluginManager;
 
 import java.util.function.Function;
 import java.util.stream.IntStream;
@@ -260,6 +261,8 @@ public final class Skill {
             Mob mob = set.getMob();
             PluginManager plugins = mob.getPlugins();
             plugins.post(new SkillChangeEvent(mob, oldExperience, oldStaticLevel, oldLevel, id));
+            JavaPluginManager javaPlugins = mob.getJavaPlugins();
+            javaPlugins.post(new SkillChangeEvent(mob, oldExperience, oldStaticLevel, oldLevel, id));
         }
     }
 
