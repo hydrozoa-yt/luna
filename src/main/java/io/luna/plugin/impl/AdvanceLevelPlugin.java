@@ -10,8 +10,8 @@ import io.luna.game.model.mob.inter.DialogueInterface;
 import io.luna.net.msg.out.SkillUpdateMessageWriter;
 import io.luna.net.msg.out.WidgetAnimationMessageWriter;
 import io.luna.net.msg.out.WidgetTextMessageWriter;
+import io.luna.plugin.EventListenerAnnotation;
 import io.luna.plugin.Plugin;
-import io.luna.plugin.listeners.SkillChangeListener;
 import io.luna.util.StringUtils;
 
 import java.util.List;
@@ -21,7 +21,7 @@ import java.util.List;
  *
  * @author hydrozoa
  */
-public class AdvanceLevelPlugin extends Plugin implements SkillChangeListener {
+public class AdvanceLevelPlugin extends Plugin {
 
     /**
      * Graphic played when a player advances a level.
@@ -102,17 +102,6 @@ public class AdvanceLevelPlugin extends Plugin implements SkillChangeListener {
         super(ctx);
     }
 
-    @Override
-    public void onSkillChange(SkillChangeEvent event) {
-        if (event.getMob() instanceof Player) {
-            Player p = (Player) event.getMob();
-            p.queue(new SkillUpdateMessageWriter(event.getId()));
-            if (event.getOldStaticLvl() < 99) {
-                advanceLevel(p, event.getId(), event.getOldStaticLvl());
-            }
-        }
-    }
-
     private void advanceLevel(Player p, int skillId, int oldLevel) {
         Skill skill = p.getSkills().getSkill(skillId);
         int newLevel = skill.getStaticLevel();
@@ -132,6 +121,17 @@ public class AdvanceLevelPlugin extends Plugin implements SkillChangeListener {
             if (Skill.isCombatSkill(skillId)) {
                 p.getSkills().resetCombatLevel();
                 p.getFlags().flag(UpdateFlagSet.UpdateFlag.APPEARANCE);
+            }
+        }
+    }
+
+    @EventListenerAnnotation(SkillChangeEvent.class)
+    public void onSkillChange(SkillChangeEvent event) {
+        if (event.getMob() instanceof Player) {
+            Player p = (Player) event.getMob();
+            p.queue(new SkillUpdateMessageWriter(event.getId()));
+            if (event.getOldStaticLvl() < 99) {
+                advanceLevel(p, event.getId(), event.getOldStaticLvl());
             }
         }
     }

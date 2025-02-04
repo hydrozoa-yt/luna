@@ -1,12 +1,14 @@
 package io.luna.game.model.item;
 
 import com.google.common.collect.ImmutableList;
+import io.luna.game.event.Event;
 import io.luna.game.event.impl.EquipmentChangeEvent;
 import io.luna.game.model.def.EquipmentDefinition;
 import io.luna.game.model.item.RefreshListener.PlayerRefreshListener;
 import io.luna.game.model.mob.Player;
 import io.luna.game.model.mob.block.UpdateFlagSet.UpdateFlag;
 import io.luna.game.plugin.PluginManager;
+import io.luna.plugin.JavaPluginManager;
 
 import java.util.BitSet;
 import java.util.Optional;
@@ -80,8 +82,12 @@ public final class Equipment extends ItemContainer {
          * @param newItem The new item.
          */
         private void sendEvent(int index, Optional<Item> oldItem, Optional<Item> newItem) {
+            Event e = new EquipmentChangeEvent(player, index, oldItem, newItem);
+
             PluginManager plugins = player.getPlugins();
-            plugins.post(new EquipmentChangeEvent(player, index, oldItem, newItem));
+            plugins.post(e);
+            JavaPluginManager javaPlugins = player.getJavaPlugins();
+            javaPlugins.post(e);
         }
 
         /**
