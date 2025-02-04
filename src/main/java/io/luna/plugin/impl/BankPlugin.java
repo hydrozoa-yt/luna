@@ -8,11 +8,13 @@ import io.luna.plugin.Plugin;
 import java.util.Set;
 
 /**
- * Ported from openBank.kts
+ * Ported from openBank.kts and openDepositBox.kts
  *
  * @author hydrozoa
  */
 public class BankPlugin extends Plugin {
+
+    private Set<Integer> depositBoxes = Set.of(9398);
 
     private Set<Integer> bankObjects = Set.of(3193, 2213, 3095);
 

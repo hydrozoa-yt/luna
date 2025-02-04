@@ -50,7 +50,8 @@ public class JavaPluginManager {
                 new ActionButtonPlugin(ctx),
                 new AdvanceLevelPlugin(ctx),
                 new EquipmentChangePlugin(ctx),
-                new BankPlugin(ctx)
+                new BankPlugin(ctx),
+                new StarterPackagePlugin(ctx)
         );
         for (Plugin p : plugins) {
             loadPlugin(p);

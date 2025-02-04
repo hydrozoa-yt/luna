@@ -28,6 +28,10 @@ public class EquipmentChangePlugin extends Plugin {
 
     @EventListenerAnnotation(WidgetItemClickEvent.WidgetItemFirstClickEvent.class)
     public void handleUnequipItem(WidgetItemClickEvent.WidgetItemFirstClickEvent e) {
+        if (e.getWidgetId() != 1688) {
+            return;
+        }
+
         e.getPlr().getEquipment().unequip(e.getIndex());
     }
 }
