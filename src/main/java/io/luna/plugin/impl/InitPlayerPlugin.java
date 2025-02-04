@@ -39,6 +39,8 @@ public class InitPlayerPlugin extends Plugin {
 
         p.getSkills().forEach(it -> p.queue(new SkillUpdateMessageWriter(it.getId())));
 
+        p.getVarpManager().sendAllValues();
+
         p.sendMessage("Welcome to Luna - the java version");
         if (Luna.settings().game().betaMode() || p.getRights().getClientValue() >= PlayerRights.ADMINISTRATOR.getClientValue()) {
             p.sendMessage("Server currently running in "+Luna.settings().game().runtimeMode()+" mode.");
