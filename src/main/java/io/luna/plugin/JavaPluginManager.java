@@ -42,7 +42,8 @@ public class JavaPluginManager {
                 new CommandPlugin(ctx),
                 new ActionButtonPlugin(ctx),
                 new AdvanceLevelPlugin(ctx),
-                new EquipmentChangePlugin(ctx)
+                new EquipmentChangePlugin(ctx),
+                new BankPlugin(ctx)
         );
         for (Plugin p : plugins) {
             loadPlugin(p);

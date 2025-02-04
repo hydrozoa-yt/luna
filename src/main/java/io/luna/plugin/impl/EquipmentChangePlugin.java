@@ -2,6 +2,7 @@ package io.luna.plugin.impl;
 
 import io.luna.LunaContext;
 import io.luna.game.event.impl.*;
+import io.luna.game.model.mob.Player;
 import io.luna.plugin.EventListenerAnnotation;
 import io.luna.plugin.Plugin;
 
@@ -18,11 +19,15 @@ public class EquipmentChangePlugin extends Plugin {
 
     @EventListenerAnnotation(EquipItemEvent.class)
     public void handleEquipItem(EquipItemEvent e) {
-        e.getPlr().sendMessage("Tried to equip item.");
+        Player p = e.getPlr();
+        p.interruptAction();
+        p.resetInteractingWith();
+        p.getInterfaces().close();
+        p.getEquipment().equip(e.getIndex());
     }
 
     @EventListenerAnnotation(WidgetItemClickEvent.WidgetItemFirstClickEvent.class)
-    public void handleUnequip(WidgetItemClickEvent.WidgetItemFirstClickEvent e) {
-        e.getPlr().sendMessage("Tried to unequip item.");
+    public void handleUnequipItem(WidgetItemClickEvent.WidgetItemFirstClickEvent e) {
+        e.getPlr().getEquipment().unequip(e.getIndex());
     }
 }
