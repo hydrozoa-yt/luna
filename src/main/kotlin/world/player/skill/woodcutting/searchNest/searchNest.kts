@@ -3,7 +3,7 @@ package world.player.skill.woodcutting.searchNest
 import api.predef.*
 import io.luna.game.event.impl.ItemClickEvent.ItemFirstClickEvent
 import io.luna.game.model.mob.Player
-import world.player.Messages
+import io.luna.game.model.Messages
 
 /**
  * Search a bird's nest.

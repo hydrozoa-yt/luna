@@ -1,5 +1,10 @@
 package io.luna.game.model;
 
+/**
+ * Ported from Sounds.kt
+ *
+ * @author hydrozoa
+ */
 public enum Sounds {
     PICK_LOCK(37),
     TELEGRAB(200),

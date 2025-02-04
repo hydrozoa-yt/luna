@@ -12,7 +12,7 @@ import io.luna.game.model.mob.block.Animation
 import io.luna.game.model.mob.block.Graphic
 import io.luna.game.model.mob.block.Hit
 import world.player.Animations
-import world.player.Messages
+import io.luna.game.model.Messages
 import io.luna.game.model.Sounds
 import world.player.skill.thieving.Thieving
 import java.time.Duration
