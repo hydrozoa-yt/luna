@@ -3,6 +3,8 @@ package io.luna.plugin;
 import io.luna.LunaContext;
 import io.luna.game.event.Event;
 import io.luna.plugin.impl.*;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -31,6 +33,11 @@ public class JavaPluginManager {
 
     private int pluginsLoaded = 0;
 
+    /**
+     * The asynchronous logger.
+     */
+    private static final Logger logger = LogManager.getLogger();
+
     public JavaPluginManager(LunaContext ctx) {
         this.ctx = ctx;
         loadPlugins();
@@ -48,12 +55,10 @@ public class JavaPluginManager {
         for (Plugin p : plugins) {
             loadPlugin(p);
         }
-        System.out.println("Loaded "+pluginsLoaded+" java plugins");
-        System.out.println("Loaded "+listenersLoaded+" java listeners");
+        logger.info("Loaded "+pluginsLoaded+" java plugins and "+listenersLoaded+" listeners");
     }
 
     private void loadPlugin(Plugin plugin) {
-        Class pluginClass = plugin.getClass();
         for (Method m : plugin.getClass().getDeclaredMethods()) {
             if (m.isAnnotationPresent(EventListenerAnnotation.class)) {
                 EventListenerAnnotation annotation = m.getAnnotation(EventListenerAnnotation.class);

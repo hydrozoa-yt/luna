@@ -38,6 +38,9 @@ public abstract class Entity {
      */
     protected final PluginManager plugins;
 
+    /**
+     * The plugin manager for java plugins.
+     */
     protected final JavaPluginManager javaPlugins;
 
     /**
