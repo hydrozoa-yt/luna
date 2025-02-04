@@ -2,6 +2,7 @@ package world.player
 
 /**
  * A collection of sound constants.
+ * Note: deprecated
  */
 enum class Sounds(val id: Int) {
     PICK_LOCK(37),
