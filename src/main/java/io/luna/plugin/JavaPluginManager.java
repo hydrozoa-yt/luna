@@ -29,7 +29,7 @@ public class JavaPluginManager {
 
     private Map<Method, Plugin> handlerInstances = new HashMap<>();
 
-    private Dispatcher dispatcher;
+    private Dispatcher dispatcher = new Dispatcher();
 
     private int listenersLoaded = 0;
 
@@ -56,20 +56,13 @@ public class JavaPluginManager {
                 new StarterPackagePlugin(ctx)
         );
         for (Plugin p : plugins) {
-            loadPlugin(p);
+            dispatcher.loadPlugin(p);
         }
         logger.info("Loaded "+pluginsLoaded+" java plugins and "+listenersLoaded+" listeners");
     }
 
     private void loadPlugin(Plugin plugin) {
-        for (Method m : plugin.getClass().getDeclaredMethods()) {
-            if (m.isAnnotationPresent(EventListener.class)) {
-                EventListener annotation = m.getAnnotation(EventListener.class);
-                Class<? extends Event> eventType = annotation.value();
-                addEventListener(m, plugin, eventType);
-            }
-        }
-        pluginsLoaded++;
+        dispatcher.loadPlugin(plugin);
     }
 
     private void addEventListener(Method listener, Plugin plugin, Class<? extends Event> type) {
@@ -87,12 +80,12 @@ public class JavaPluginManager {
     }
 
     /**
-     * Traverses the event across its designated pipeline.
+     * Send the event through to the listeners.
      *
      * @param msg The event to post.
      */
     public <E extends Event> void post(E msg) {
-        if (!listeners.containsKey(msg.getClass())) {
+        /*if (!listeners.containsKey(msg.getClass())) {
             return;
         }
         for (Method m : listeners.get(msg.getClass())) {
@@ -106,6 +99,7 @@ public class JavaPluginManager {
             } catch (InvocationTargetException e) {
                 throw new RuntimeException(e);
             }
-        }
+        }*/
+        dispatcher.post(msg);
     }
 }

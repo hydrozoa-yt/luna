@@ -17,7 +17,7 @@ public class ActionButtonPlugin extends Plugin {
         super(ctx);
     }
 
-    @EventListener(value = ButtonClickEvent.class)
+    @EventListener(type = ButtonClickEvent.class)
     public void handleButton(ButtonClickEvent e) {
         Player p = e.getPlr();
         switch (e.getId()) {

@@ -13,6 +13,6 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.METHOD)
 public @interface EventListener {
-    Class<? extends Event> value(); // The event type
+    Class<? extends Event> type(); // The event type
     String filter() default "";
 }

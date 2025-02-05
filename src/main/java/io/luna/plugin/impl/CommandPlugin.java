@@ -21,7 +21,7 @@ public class CommandPlugin extends Plugin {
         super(ctx);
     }
 
-    @EventListener(CommandEvent.class)
+    @EventListener(type = CommandEvent.class)
     public boolean handleCommand(CommandEvent e) {
         Player p = e.getPlr();
 

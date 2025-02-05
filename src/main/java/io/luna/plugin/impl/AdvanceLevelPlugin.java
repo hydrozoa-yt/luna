@@ -125,7 +125,7 @@ public class AdvanceLevelPlugin extends Plugin {
         }
     }
 
-    @EventListener(SkillChangeEvent.class)
+    @EventListener(type = SkillChangeEvent.class)
     public void onSkillChange(SkillChangeEvent event) {
         if (event.getMob() instanceof Player) {
             Player p = (Player) event.getMob();

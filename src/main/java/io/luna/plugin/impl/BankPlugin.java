@@ -22,7 +22,7 @@ public class BankPlugin extends Plugin {
         super(ctx);
     }
 
-    @EventListener(ObjectClickEvent.ObjectFirstClickEvent.class)
+    @EventListener(type = ObjectClickEvent.ObjectFirstClickEvent.class)
     public void handleObjectFirstClick(ObjectClickEvent.ObjectFirstClickEvent e) {
         if (!bankObjects.contains(e.getId())) {
             return;

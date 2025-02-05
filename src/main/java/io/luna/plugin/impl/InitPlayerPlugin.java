@@ -22,7 +22,7 @@ public class InitPlayerPlugin extends Plugin {
         super(ctx);
     }
 
-    @EventListener(LoginEvent.class)
+    @EventListener(type = LoginEvent.class)
     public void onLogin(LoginEvent e) {
         Player p = e.getPlr();
 

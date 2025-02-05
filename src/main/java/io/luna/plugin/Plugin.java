@@ -9,4 +9,6 @@ public abstract class Plugin {
     public Plugin(LunaContext ctx) {
         this.ctx = ctx;
     }
+
+
 }

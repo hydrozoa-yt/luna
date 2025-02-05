@@ -17,7 +17,7 @@ public class EquipmentChangePlugin extends Plugin {
         super(ctx);
     }
 
-    @EventListener(EquipItemEvent.class)
+    @EventListener(type=EquipItemEvent.class)
     public void handleEquipItem(EquipItemEvent e) {
         Player p = e.getPlr();
         p.interruptAction();
@@ -26,12 +26,9 @@ public class EquipmentChangePlugin extends Plugin {
         p.getEquipment().equip(e.getIndex());
     }
 
-    @EventListener(WidgetItemClickEvent.WidgetItemFirstClickEvent.class)
+    @EventListener(type=WidgetItemClickEvent.WidgetItemFirstClickEvent.class)
     public void handleUnequipItem(WidgetItemClickEvent.WidgetItemFirstClickEvent e) {
-        if (e.getWidgetId() != 1688) {
-            return;
-        }
-
+        System.out.println("clicked equipment");
         e.getPlr().getEquipment().unequip(e.getIndex());
     }
 }

@@ -25,7 +25,7 @@ public class StarterPackagePlugin extends Plugin {
         p.getAttributes().set(firstLoginAttribute, false);
     }
 
-    @EventListener(LoginEvent.class)
+    @EventListener(type = LoginEvent.class)
     public void handleLogin(LoginEvent e) {
         if (!e.getPlr().getAttributes().has(firstLoginAttribute)) {
             e.getPlr().getAttributes().set(firstLoginAttribute, firstLoginAttribute.getInitialValue());

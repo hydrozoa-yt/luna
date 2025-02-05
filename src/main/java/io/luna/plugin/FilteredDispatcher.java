@@ -3,6 +3,7 @@ package io.luna.plugin;
 import io.luna.game.event.Event;
 import io.luna.game.event.impl.ButtonClickEvent;
 import io.luna.game.event.impl.ObjectClickEvent;
+import io.luna.game.event.impl.WidgetItemClickEvent;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -47,6 +48,9 @@ public class FilteredDispatcher {
         } else if (e instanceof ButtonClickEvent) {
             ButtonClickEvent bce = (ButtonClickEvent) e;
             filter = String.valueOf(bce.getId());
+        } else if (e instanceof WidgetItemClickEvent.WidgetItemFirstClickEvent) {
+            WidgetItemClickEvent.WidgetItemFirstClickEvent wice = (WidgetItemClickEvent.WidgetItemFirstClickEvent) e;
+            filter = String.valueOf(wice.getWidgetId());
         }
 
         if (listeners.containsKey(filter)) {

@@ -61,7 +61,7 @@ public class Dispatcher {
         for (Method m : plugin.getClass().getDeclaredMethods()) {
             if (m.isAnnotationPresent(EventListener.class)) {
                 EventListener annotation = m.getAnnotation(EventListener.class);
-                Class<? extends Event> eventType = annotation.value();
+                Class<? extends Event> eventType = annotation.type();
                 if (!annotation.filter().isBlank()) {
                     String filter = annotation.filter();
                     addFilteredEventListener(m, plugin, eventType, filter);
