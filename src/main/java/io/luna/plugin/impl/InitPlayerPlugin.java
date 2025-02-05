@@ -8,7 +8,7 @@ import io.luna.game.model.mob.PlayerInteraction;
 import io.luna.game.model.mob.PlayerRights;
 import io.luna.net.msg.out.SkillUpdateMessageWriter;
 import io.luna.net.msg.out.UpdateRunEnergyMessageWriter;
-import io.luna.plugin.EventListenerAnnotation;
+import io.luna.plugin.EventListener;
 import io.luna.plugin.Plugin;
 
 /**
@@ -22,7 +22,7 @@ public class InitPlayerPlugin extends Plugin {
         super(ctx);
     }
 
-    @EventListenerAnnotation(LoginEvent.class)
+    @EventListener(LoginEvent.class)
     public void onLogin(LoginEvent e) {
         Player p = e.getPlr();
 

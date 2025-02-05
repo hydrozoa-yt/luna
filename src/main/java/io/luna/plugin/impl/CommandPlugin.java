@@ -7,7 +7,7 @@ import io.luna.game.model.mob.Player;
 import io.luna.game.model.mob.PlayerRights;
 import io.luna.game.model.mob.Skill;
 import io.luna.game.model.mob.SkillSet;
-import io.luna.plugin.EventListenerAnnotation;
+import io.luna.plugin.EventListener;
 import io.luna.plugin.Plugin;
 
 /**
@@ -21,7 +21,7 @@ public class CommandPlugin extends Plugin {
         super(ctx);
     }
 
-    @EventListenerAnnotation(CommandEvent.class)
+    @EventListener(CommandEvent.class)
     public boolean handleCommand(CommandEvent e) {
         Player p = e.getPlr();
 

@@ -2,7 +2,7 @@ package io.luna.plugin.impl;
 
 import io.luna.LunaContext;
 import io.luna.game.event.impl.ObjectClickEvent;
-import io.luna.plugin.EventListenerAnnotation;
+import io.luna.plugin.EventListener;
 import io.luna.plugin.Plugin;
 
 import java.util.Set;
@@ -22,7 +22,7 @@ public class BankPlugin extends Plugin {
         super(ctx);
     }
 
-    @EventListenerAnnotation(ObjectClickEvent.ObjectFirstClickEvent.class)
+    @EventListener(ObjectClickEvent.ObjectFirstClickEvent.class)
     public void handleObjectFirstClick(ObjectClickEvent.ObjectFirstClickEvent e) {
         if (!bankObjects.contains(e.getId())) {
             return;

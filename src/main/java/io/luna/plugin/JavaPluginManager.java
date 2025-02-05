@@ -29,6 +29,8 @@ public class JavaPluginManager {
 
     private Map<Method, Plugin> handlerInstances = new HashMap<>();
 
+    private Dispatcher dispatcher;
+
     private int listenersLoaded = 0;
 
     private int pluginsLoaded = 0;
@@ -61,8 +63,8 @@ public class JavaPluginManager {
 
     private void loadPlugin(Plugin plugin) {
         for (Method m : plugin.getClass().getDeclaredMethods()) {
-            if (m.isAnnotationPresent(EventListenerAnnotation.class)) {
-                EventListenerAnnotation annotation = m.getAnnotation(EventListenerAnnotation.class);
+            if (m.isAnnotationPresent(EventListener.class)) {
+                EventListener annotation = m.getAnnotation(EventListener.class);
                 Class<? extends Event> eventType = annotation.value();
                 addEventListener(m, plugin, eventType);
             }

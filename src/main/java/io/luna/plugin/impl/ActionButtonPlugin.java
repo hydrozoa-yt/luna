@@ -3,7 +3,7 @@ package io.luna.plugin.impl;
 import io.luna.LunaContext;
 import io.luna.game.event.impl.ButtonClickEvent;
 import io.luna.game.model.mob.Player;
-import io.luna.plugin.EventListenerAnnotation;
+import io.luna.plugin.EventListener;
 import io.luna.plugin.Plugin;
 
 /**
@@ -17,7 +17,7 @@ public class ActionButtonPlugin extends Plugin {
         super(ctx);
     }
 
-    @EventListenerAnnotation(ButtonClickEvent.class)
+    @EventListener(value = ButtonClickEvent.class)
     public void handleButton(ButtonClickEvent e) {
         Player p = e.getPlr();
         switch (e.getId()) {

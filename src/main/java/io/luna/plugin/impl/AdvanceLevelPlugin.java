@@ -10,7 +10,7 @@ import io.luna.game.model.mob.inter.DialogueInterface;
 import io.luna.net.msg.out.SkillUpdateMessageWriter;
 import io.luna.net.msg.out.WidgetAnimationMessageWriter;
 import io.luna.net.msg.out.WidgetTextMessageWriter;
-import io.luna.plugin.EventListenerAnnotation;
+import io.luna.plugin.EventListener;
 import io.luna.plugin.Plugin;
 import io.luna.util.StringUtils;
 
@@ -125,7 +125,7 @@ public class AdvanceLevelPlugin extends Plugin {
         }
     }
 
-    @EventListenerAnnotation(SkillChangeEvent.class)
+    @EventListener(SkillChangeEvent.class)
     public void onSkillChange(SkillChangeEvent event) {
         if (event.getMob() instanceof Player) {
             Player p = (Player) event.getMob();

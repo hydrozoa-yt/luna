@@ -3,7 +3,7 @@ package io.luna.plugin.impl;
 import io.luna.LunaContext;
 import io.luna.game.event.impl.*;
 import io.luna.game.model.mob.Player;
-import io.luna.plugin.EventListenerAnnotation;
+import io.luna.plugin.EventListener;
 import io.luna.plugin.Plugin;
 
 /**
@@ -17,7 +17,7 @@ public class EquipmentChangePlugin extends Plugin {
         super(ctx);
     }
 
-    @EventListenerAnnotation(EquipItemEvent.class)
+    @EventListener(EquipItemEvent.class)
     public void handleEquipItem(EquipItemEvent e) {
         Player p = e.getPlr();
         p.interruptAction();
@@ -26,7 +26,7 @@ public class EquipmentChangePlugin extends Plugin {
         p.getEquipment().equip(e.getIndex());
     }
 
-    @EventListenerAnnotation(WidgetItemClickEvent.WidgetItemFirstClickEvent.class)
+    @EventListener(WidgetItemClickEvent.WidgetItemFirstClickEvent.class)
     public void handleUnequipItem(WidgetItemClickEvent.WidgetItemFirstClickEvent e) {
         if (e.getWidgetId() != 1688) {
             return;

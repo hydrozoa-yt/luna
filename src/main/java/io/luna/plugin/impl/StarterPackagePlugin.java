@@ -4,7 +4,7 @@ import io.luna.LunaContext;
 import io.luna.game.event.impl.LoginEvent;
 import io.luna.game.model.mob.Player;
 import io.luna.game.model.mob.attr.Attribute;
-import io.luna.plugin.EventListenerAnnotation;
+import io.luna.plugin.EventListener;
 import io.luna.plugin.Plugin;
 
 /**
@@ -25,7 +25,7 @@ public class StarterPackagePlugin extends Plugin {
         p.getAttributes().set(firstLoginAttribute, false);
     }
 
-    @EventListenerAnnotation(LoginEvent.class)
+    @EventListener(LoginEvent.class)
     public void handleLogin(LoginEvent e) {
         if (!e.getPlr().getAttributes().has(firstLoginAttribute)) {
             e.getPlr().getAttributes().set(firstLoginAttribute, firstLoginAttribute.getInitialValue());
