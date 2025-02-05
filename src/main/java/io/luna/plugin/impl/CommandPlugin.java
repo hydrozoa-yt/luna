@@ -58,6 +58,11 @@ public class CommandPlugin extends Plugin {
                 int z = args.length == 3 ? Integer.parseInt(args[2]) : p.getZ();
                 p.move(new Position(x, y, z));
                 break;
+            case "item":
+                args = e.getArgs();
+                int itemId = Integer.parseInt(args[0]);
+                p.getInventory().add(itemId);
+                break;
         }
         return false;
     }
