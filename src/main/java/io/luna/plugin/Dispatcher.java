@@ -32,6 +32,10 @@ public class Dispatcher {
      */
     private Map<Method, Plugin> handlerInstances = new HashMap<>();
 
+    private int listenersLoaded = 0;
+
+    private int pluginsLoaded = 0;
+
     /**
      * Traverses the event across its designated pipeline.
      *
@@ -68,8 +72,10 @@ public class Dispatcher {
                 } else {
                     addGlobalEventListener(m, plugin, eventType);
                 }
+                listenersLoaded++;
             }
         }
+        pluginsLoaded++;
     }
 
     private void addGlobalEventListener(Method m, Plugin p, Class<? extends Event> type) {
@@ -92,5 +98,13 @@ public class Dispatcher {
 
     public Plugin getInstanceForMethod(Method m) {
         return handlerInstances.get(m);
+    }
+
+    public int getListenersLoaded() {
+        return listenersLoaded;
+    }
+
+    public int getPluginsLoaded() {
+        return pluginsLoaded;
     }
 }

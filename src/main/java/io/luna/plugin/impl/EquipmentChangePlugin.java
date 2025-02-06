@@ -26,7 +26,7 @@ public class EquipmentChangePlugin extends Plugin {
         p.getEquipment().equip(e.getIndex());
     }
 
-    @EventListener(type =WidgetItemClickEvent.WidgetItemFirstClickEvent.class, filter="1688")
+    @EventListener(type = WidgetItemClickEvent.WidgetItemFirstClickEvent.class, filter="1688")
     public void handleUnequipItem(WidgetItemClickEvent.WidgetItemFirstClickEvent e) {
         e.getPlr().getEquipment().unequip(e.getIndex());
     }

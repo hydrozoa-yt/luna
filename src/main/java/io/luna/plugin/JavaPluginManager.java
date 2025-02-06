@@ -25,15 +25,7 @@ public class JavaPluginManager {
 
     private final LunaContext ctx;
 
-    private Map<Class<? extends Event>, List<Method>> listeners = new HashMap<>();
-
-    private Map<Method, Plugin> handlerInstances = new HashMap<>();
-
     private Dispatcher dispatcher = new Dispatcher();
-
-    private int listenersLoaded = 0;
-
-    private int pluginsLoaded = 0;
 
     /**
      * The asynchronous logger.
@@ -58,25 +50,7 @@ public class JavaPluginManager {
         for (Plugin p : plugins) {
             dispatcher.loadPlugin(p);
         }
-        logger.info("Loaded "+pluginsLoaded+" java plugins and "+listenersLoaded+" listeners");
-    }
-
-    private void loadPlugin(Plugin plugin) {
-        dispatcher.loadPlugin(plugin);
-    }
-
-    private void addEventListener(Method listener, Plugin plugin, Class<? extends Event> type) {
-        List<Method> listenerList = listeners.get(type);
-
-        if (listenerList == null) {
-            List newList = new ArrayList<>();
-            listeners.put(type, newList);
-            listenerList = newList;
-        }
-
-        listenerList.add(listener);
-        handlerInstances.put(listener, plugin);
-        listenersLoaded++;
+        logger.info("Loaded "+dispatcher.getPluginsLoaded()+" java plugins and "+dispatcher.getListenersLoaded()+" listeners");
     }
 
     /**
@@ -85,21 +59,6 @@ public class JavaPluginManager {
      * @param msg The event to post.
      */
     public <E extends Event> void post(E msg) {
-        /*if (!listeners.containsKey(msg.getClass())) {
-            return;
-        }
-        for (Method m : listeners.get(msg.getClass())) {
-            Class<?> methodDeclaringClass = m.getDeclaringClass();
-            Plugin p = handlerInstances.get(m);
-            Object instanceToInvokeOn = methodDeclaringClass.cast(p); // Safe cast
-            try {
-                m.invoke(instanceToInvokeOn, msg);
-            } catch (IllegalAccessException e) {
-                throw new RuntimeException(e);
-            } catch (InvocationTargetException e) {
-                throw new RuntimeException(e);
-            }
-        }*/
         dispatcher.post(msg);
     }
 }

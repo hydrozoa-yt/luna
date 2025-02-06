@@ -51,6 +51,18 @@ public class FilteredDispatcher {
         } else if (e instanceof WidgetItemClickEvent.WidgetItemFirstClickEvent) {
             WidgetItemClickEvent.WidgetItemFirstClickEvent wice = (WidgetItemClickEvent.WidgetItemFirstClickEvent) e;
             filter = String.valueOf(wice.getWidgetId());
+        } else if (e instanceof WidgetItemClickEvent.WidgetItemSecondClickEvent) {
+            WidgetItemClickEvent.WidgetItemSecondClickEvent wice = (WidgetItemClickEvent.WidgetItemSecondClickEvent) e;
+            filter = String.valueOf(wice.getWidgetId());
+        } else if (e instanceof WidgetItemClickEvent.WidgetItemThirdClickEvent) {
+            WidgetItemClickEvent.WidgetItemThirdClickEvent wice = (WidgetItemClickEvent.WidgetItemThirdClickEvent) e;
+            filter = String.valueOf(wice.getWidgetId());
+        } else if (e instanceof WidgetItemClickEvent.WidgetItemFourthClickEvent) {
+            WidgetItemClickEvent.WidgetItemFourthClickEvent wice = (WidgetItemClickEvent.WidgetItemFourthClickEvent) e;
+            filter = String.valueOf(wice.getWidgetId());
+        } else if (e instanceof WidgetItemClickEvent.WidgetItemFifthClickEvent) {
+            WidgetItemClickEvent.WidgetItemFifthClickEvent wice = (WidgetItemClickEvent.WidgetItemFifthClickEvent) e;
+            filter = String.valueOf(wice.getWidgetId());
         }
 
         if (listeners.containsKey(filter)) {
