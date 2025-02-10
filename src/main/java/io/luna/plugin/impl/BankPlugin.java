@@ -36,8 +36,8 @@ public class BankPlugin extends Plugin {
     /**
      * Handler for opening the bank when clicked.
      */
-    @EventListener(type = ObjectClickEvent.ObjectFirstClickEvent.class)
-    public void handleObjectFirstClick(ObjectClickEvent.ObjectFirstClickEvent e) {
+    @EventListener(type = ObjectClickEvent.ObjectSecondClickEvent.class)
+    public void handleObjectFirstClick(ObjectClickEvent.ObjectSecondClickEvent e) {
         if (!bankObjects.contains(e.getId())) {
             return;
         }

@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * This class dispatches a certain type of events to listeners that subscribe to a specific subset of this subclass of Event.
+ * FilteredDispatcher dispatches a certain type of events to listeners that subscribe to a specific subset of this subclass of Event.
  * It could be a specific object id, or npc id.
  * There is up to one FilteredDispatcher per Event type.
  *
