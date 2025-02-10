@@ -42,6 +42,7 @@ public abstract class MobDeathTask<T extends Mob> extends Task {
                     mob.sendMessage("Oh dear, you are dead!");
                     mob.animation(new Animation(2304, AnimationPriority.HIGH));
                     mob.getInterfaces().close();
+                    mob.getActions().interrupt();
                     break;
                 case DEATH:
                     mob.getPlugins().post(new DeathEvent(mob, source));
@@ -52,7 +53,7 @@ public abstract class MobDeathTask<T extends Mob> extends Task {
                     mob.queue(new WalkableInterfaceMessageWriter(65535));
                     mob.getSkills().resetAll();
                     mob.setSkullIcon(SkullIcon.NONE);
-                    // TODO Reset all prayers.
+                    // TODO Reset all prayers. https://github.com/luna-rs/luna/issues/369
                     mob.getFlags().flag(UpdateFlag.APPEARANCE);
                     break;
             }
@@ -93,8 +94,8 @@ public abstract class MobDeathTask<T extends Mob> extends Task {
                             protected void execute() {
                                 cancel();
 
+                                // TODO Clone NPC on death properly.
                                 var respawnedNpc = new Npc(mob.getContext(), mob.getBaseId(), mob.getBasePosition()).setRespawning();
-                                // TODO Configure same random walking configurations, etc.
                                 world.getNpcs().add(respawnedNpc);
                             }
                         }));
