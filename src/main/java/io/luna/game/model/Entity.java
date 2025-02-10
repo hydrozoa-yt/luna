@@ -2,8 +2,8 @@ package io.luna.game.model;
 
 import io.luna.Luna;
 import io.luna.LunaContext;
-import io.luna.game.model.chunk.ChunkRepository;
 import io.luna.game.model.chunk.Chunk;
+import io.luna.game.model.chunk.ChunkRepository;
 import io.luna.game.model.mob.Mob;
 import io.luna.game.model.mob.MobList;
 import io.luna.game.model.mob.Player;
@@ -227,15 +227,6 @@ public abstract class Entity {
     }
 
     /**
-     * Invoked when this entity's position changes.
-     *
-     * @param oldPos The old position.
-     */
-    protected void onPositionChanged(Position oldPos) {
-
-    }
-
-    /**
      * Sets the current position and performs chunk checking.
      *
      * @param newPosition The new position.
@@ -249,12 +240,9 @@ public abstract class Entity {
                 }
             }
 
-            Position old = position;
             position = newPosition;
-
             if (state == EntityState.ACTIVE) {
                 setCurrentChunk();
-                onPositionChanged(old);
             }
         }
     }
